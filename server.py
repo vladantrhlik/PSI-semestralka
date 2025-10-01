@@ -1,3 +1,4 @@
+from socket import *
 
 def hex_to_ip4(h: str) -> str:
     # convert to int
@@ -76,9 +77,29 @@ def get_route_table() -> str:
                 values += f"<td>{line[key]}</td>"
         rows += f"\t<tr>{values}</tr>\n"
     
-    table = f"<table border=\"black 1px\">\n{rows}</table>"
+    table = f"<html>\n<table border=\"black 1px\">\n{rows}</table>\n</html>\n"
 
     return table
 
 if __name__ == "__main__":
+    s= socket(AF_INET, SOCK_STREAM) 
+    s.bind(('127.0.0.1', 8080))
+    s.listen(1)
+
+    while True:
+        c, addr = s.accept()
+        print(f"Connected to {addr}")
+
+        try: 
+            c.send("HTTP/1.1 200 OK\r\n\r\n".encode())
+            c.send(get_route_table().encode())
+            c.close()
+        except IOError:
+            print("404 Not Found")
+            c.send("HTTP/1.0 404 Not Found\r\n".encode());
+
+        c.close()
+
+    s.close()
+
     print(get_route_table())
