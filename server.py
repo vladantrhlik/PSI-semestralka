@@ -88,18 +88,15 @@ if __name__ == "__main__":
 
     while True:
         c, addr = s.accept()
-        print(f"Connected to {addr}")
+        print(f"Connected to {addr}\n")
 
         try: 
             c.send("HTTP/1.1 200 OK\r\n\r\n".encode())
             c.send(get_route_table().encode())
             c.close()
         except IOError:
-            print("404 Not Found")
             c.send("HTTP/1.0 404 Not Found\r\n".encode());
 
         c.close()
 
     s.close()
-
-    print(get_route_table())
