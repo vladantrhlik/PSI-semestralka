@@ -1,6 +1,6 @@
 from socket import *
 
-def hex_to_ip4(h: str) -> str:
+def hex_to_ipv4(h: str) -> str:
     # convert to int
     val = int(h, 16)
     # separate octets
@@ -54,7 +54,7 @@ def get_route_table() -> str:
     for dato in data:
         # convert ipv4 to readable form
         for f in ipv4_fields:
-            dato[f] = hex_to_ip4(dato[f])
+            dato[f] = hex_to_ipv4(dato[f])
         # decode flags
         dato["Flags"] = decode_flags(dato["Flags"])
 
@@ -81,7 +81,7 @@ def get_route_table() -> str:
 
     return table
 
-if __name__ == "__main__":
+def main():
     s= socket(AF_INET, SOCK_STREAM) 
     s.bind(('127.0.0.1', 8080))
     s.listen(1)
@@ -99,4 +99,5 @@ if __name__ == "__main__":
 
         c.close()
 
-    s.close()
+if __name__ == "__main__":
+    main()
