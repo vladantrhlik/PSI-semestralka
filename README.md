@@ -1,6 +1,6 @@
 # PSI - 1. úloha
 
-Jako programovací jazyk byl zvolen Python se základní knihovnou `socket` pro práci s BSD sockety. Program lze spustit pomocí příkazu `python3 server.py`, čímž se spustí TCP server na adrese `127.0.0.1:8080`.
+K řešení byl použit jazyk Python se základní knihovnou `socket` pro práci s BSD sockety. Program lze spustit pomocí příkazu `python3 server.py`, čímž se spustí TCP server na adrese `127.0.0.1:8080`.
 
 ### Popis funkcí:
 
