@@ -6,7 +6,7 @@ def hex_to_ip4(h: str) -> str:
     # separate octets
     octets = []
     for i in range(4):
-        octets.append( (val >> (3 - i) * 8) & 0xFF )
+        octets.append( (val >> (i * 8)) & 0xFF ) # top byte == last octet
     # convert to strings + combine
     return '.'.join([str(i) for i in octets])
 
