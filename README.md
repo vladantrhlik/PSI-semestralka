@@ -10,4 +10,4 @@ K řešení byl použit jazyk Python se základní knihovnou `socket` pro práci
 
 - `decode_flags()` - z FLAGů záznamu směrovací tabulky dekóduje jednotlivé příznaky do čitelného řetězce
 
-- `hex_to_ipv4()` - převede hexadecimální zápis IPv4 adresy do standardního zápisu po oktetech
+- `hex_to_ipv4()` - převede hexadecimální zápis IPv4 adresy do standardního zápisu po oktetech; je potřeba správné pořadí bytů - 1. byte = 4. oktet, 2. byte = 3. oktet...
