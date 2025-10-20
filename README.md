@@ -4,10 +4,18 @@ K řešení byl použit jazyk Python se základní knihovnou `socket` pro práci
 
 ### Popis funkcí:
 
-- `main()` - vstupní bod programu, spustí TCP server a obsluhuje požadavky
+### `main()`
+Vstupní bod programu, spustí TCP server na portu 8080 a obsluhuje požadavky.
 
-- `get_route_table()` - načte směrovací tabulku z `/proc/net/route` a vytvoří HTML tabulku s potřebnými daty
+### `get_route_table()`
+1. Načte směrovací tabulku z `/proc/net/route`
+2. Vytvoří dictionary pro každý záznam tabulky
+3. Převede zápis IPv4 adres do čitelné formy pomocí `hex_to_ipv4()`
+4. Dekóduje FLAGS pomocí `decode_flags()` do čitelné formy
+5. Vytvoří HTML tabulku s potřebnými daty
 
-- `decode_flags()` - z FLAGů záznamu směrovací tabulky dekóduje jednotlivé příznaky do čitelného řetězce
+### `hex_to_ipv4()`
+Převede hexadecimální zápis IPv4 adresy do standardního zápisu po oktetech. Je potřeba správné pořadí bytů (little endian) - 1. byte = 4. oktet, 2. byte = 3. oktet...
 
-- `hex_to_ipv4()` - převede hexadecimální zápis IPv4 adresy do standardního zápisu po oktetech; je potřeba správné pořadí bytů - 1. byte = 4. oktet, 2. byte = 3. oktet...
+### `decode_flags()`
+Z FLAGů záznamu směrovací tabulky dekóduje jednotlivé příznaky do čitelného řetězce.
