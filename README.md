@@ -1,13 +1,4 @@
-# PSI - 1. úloha
+# Semestrální práce z KIV/PSI
 
-Jako programovací jazyk byl zvolen Python se základní knihovnou `socket` pro práci s BSD sockety. Program lze spustit pomocí příkazu `python3 server.py`, čímž se spustí TCP server na adrese `127.0.0.1:8080`.
-
-### Popis funkcí:
-
-- `main()` - vstupní bod programu, spustí TCP server a obsluhuje požadavky
-
-- `get_route_table()` - načte směrovací tabulku z `/proc/net/route` a vytvoří HTML tabulku s potřebnými daty
-
-- `decode_flags()` - z FLAGů záznamu směrovací tabulky dekóduje jednotlivé příznaky do čitelného řetězce
-
-- `hex_to_ipv4()` - převede hexadecimální zápis IPv4 adresy do standardního zápisu po oktetech
+ - `sem1` - jednoduchý TCP server, který vypisuje routovací tabulku
+ - `sem2` - topologie s 3 routery (2 cisco, 1 frr), setup DHCP a OSPF v GNS3
